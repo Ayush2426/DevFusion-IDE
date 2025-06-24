@@ -7,10 +7,10 @@ const SocialButton = ({ className, ...props }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const socialLinks = [
-        { icon: Linkedin, label: "LinkedIn", href: "#" }, // Replace # with your LinkedIn URL
-        { icon: Github, label: "GitHub", href: "#" }, // Replace # with your GitHub URL
-        { icon: Instagram, label: "Instagram", href: "#" }, // Replace # with your Instagram URL
-        { icon: Mail, label: "Mail", href: "mailto:youremail@example.com" }, // Replace with your email
+        { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/ayush-verma-a076a7360/" }, // Replace # with your LinkedIn URL
+        { icon: Github, label: "GitHub", href: "https://github.com/Ayush2426" }, // Replace # with your GitHub URL
+        { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/_ayush__vrma_/" }, // Replace # with your Instagram URL
+        { icon: Mail, label: "Mail", href: "mailto:ayushhhverma07@gmail.com" }, // Replace with your email
     ];
 
     const handleLinkClick = (href) => {

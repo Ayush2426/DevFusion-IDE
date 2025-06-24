@@ -109,6 +109,9 @@ const Lobby = ({ onJoinRoom, userId }) => {
           >
             The future of collaborative coding is here.
           </motion.p>
+          <motion.h4 className='text-sm text-gray-400'>
+            ~developed by <span className="text-blue-400">AyushVerma@2025 | Project08</span>
+          </motion.h4>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
