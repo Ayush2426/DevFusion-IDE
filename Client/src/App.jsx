@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Toaster, toast } from 'sonner';
 import { onAuthStateChanged, signInAnonymously } from 'firebase/auth';
-import { auth } from './firebase/firebase';
+import { auth } from './Firebase/firebase';
 
 import AnimatedBackground from './Components/AnimatedBackground';
 import Lobby from './Pages/Lobby';
