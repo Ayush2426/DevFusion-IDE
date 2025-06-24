@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { Code, LogIn, Plus, User } from 'lucide-react';
 import { collection, addDoc, doc, getDoc } from 'firebase/firestore';
-import { db } from '../firebase/firebase';
+import { db } from '../Firebase/firebase';
 import { v4 as uuidv4 } from 'uuid';
 
-import AnimatedBackground from '../components/AnimatedBackground';
-import AnimatedButton from '../components/AnimatedButton';
-import AnimatedInput from '../components/AnimatedInput';
+import AnimatedBackground from '../Components/AnimatedBackground';
+import AnimatedButton from '../Components/AnimatedButton';
+import AnimatedInput from '../Components/AnimatedInput';
 
 const Lobby = ({ onJoinRoom, userId }) => {
     const [newProjectObjective, setNewProjectObjective] = useState('');

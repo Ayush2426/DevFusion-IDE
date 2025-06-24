@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, BrainCircuit, Bot, Sparkles, Clipboard, Terminal as TerminalIcon, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { doc, onSnapshot, setDoc } from 'firebase/firestore';
-import { db } from '../firebase/firebase';
+import { db } from '../Firebase/firebase';
 import { v4 as uuidv4 } from 'uuid';
 import CodeMirror from '@uiw/react-codemirror';
 import { vscodeDark } from '@uiw/codemirror-theme-vscode';
 
-import FileExplorer from '../components/FileExplorer';
-import OutputTerminal from '../components/OutputTerminal';
-import { getLanguageExtension } from '../utils/languageUtils';
-import { getJudge0LanguageId } from '../utils/judge0LanguageMap';
+import FileExplorer from '../Components/FileExplorer';
+import OutputTerminal from '../Components/OutputTerminal';
+import { getLanguageExtension } from '../Utils/languageUtils';
+import { getJudge0LanguageId } from '../Utils/judge0LanguageMap';
 import { runCode } from '../services/judge0Service';
 import { generateCode, explainCode, findBugs } from '../services/geminiService';
 
