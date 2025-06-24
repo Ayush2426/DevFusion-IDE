@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Github, User, Mail, Link as LinkIcon } from 'lucide-react';
+import { Linkedin, Github, Instagram, Mail, Link as LinkIcon } from 'lucide-react';
 import { cn } from '../Lib/util';
 
 const SocialButton = ({ className, ...props }) => {
@@ -9,7 +9,7 @@ const SocialButton = ({ className, ...props }) => {
     const socialLinks = [
         { icon: Linkedin, label: "LinkedIn", href: "#" }, // Replace # with your LinkedIn URL
         { icon: Github, label: "GitHub", href: "#" }, // Replace # with your GitHub URL
-        { icon: User, label: "Portfolio", href: "#" }, // Replace # with your Portfolio URL
+        { icon: Instagram, label: "Instagram", href: "#" }, // Replace # with your Instagram URL
         { icon: Mail, label: "Mail", href: "mailto:youremail@example.com" }, // Replace with your email
     ];
 
