@@ -11,7 +11,7 @@ import Editor from './Pages/Editor';
 function App() {
   const [userId, setUserId] = useState(null);
   const [isAuthReady, setIsAuthReady] = useState(false);
-  const [page, setPage] = useState('lobby'); // 'lobby' or 'editor'
+  const [page, setPage] = useState('lobby'); 
   const [roomId, setRoomId] = useState(null);
 
   // Effect to handle user authentication on initial load
