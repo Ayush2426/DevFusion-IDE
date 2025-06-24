@@ -4,9 +4,9 @@ import { Toaster, toast } from 'sonner';
 import { onAuthStateChanged, signInAnonymously } from 'firebase/auth';
 import { auth } from './firebase/firebase';
 
+import AnimatedBackground from './Components/AnimatedBackground';
 import Lobby from './Pages/Lobby';
 import Editor from './Pages/Editor';
-import AnimatedBackground from './Components/AnimatedBackground';
 
 function App() {
   const [userId, setUserId] = useState(null);
