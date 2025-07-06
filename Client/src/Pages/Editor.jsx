@@ -29,7 +29,7 @@ const Editor = ({ roomId, onExit }) => {
   const [isExplanationVisible, setIsExplanationVisible] = useState(false);
   const [explanationContent, setExplanationContent] = useState('');
 
-  const editorViewRef = useRef(null); // <-- NEW: Ref to hold the editor instance
+  const editorViewRef = useRef(null);
 
   useEffect(() => {
     if (!roomId) return;
@@ -138,7 +138,6 @@ const Editor = ({ roomId, onExit }) => {
               const codeBeforeCursor = editorState.doc.sliceString(0, selection.head);
               result = await generateCode(codeBeforeCursor);
               if (result) {
-                  // --- FIX: Use editor transaction to insert text at the cursor ---
                   editorViewRef.current.dispatch({
                       changes: { from: selection.head, insert: result }
                   });
@@ -147,7 +146,6 @@ const Editor = ({ roomId, onExit }) => {
               break;
           case 'explain':
               toast.info("AI is explaining the code...");
-              // If user has selected text, explain that, otherwise explain the whole file
               const codeToExplain = selection.empty ? activeFile.content : editorState.sliceDoc(selection.from, selection.to);
               result = await explainCode(codeToExplain);
               if (result) {
@@ -216,7 +214,8 @@ const Editor = ({ roomId, onExit }) => {
           onDeleteItem={handleDeleteItem}
         />
         <main className="flex-grow flex flex-col bg-gray-900">
-          <div className="flex-grow bg-black/30 flex items-center justify-center">
+          {/* --- FIX: Added min-h-0 to the editor's direct parent --- */}
+          <div className={`flex-grow bg-black/30 ${!activeFile ? 'flex items-center justify-center' : 'min-h-0'}`}>
             {activeFile ? (
               <CodeMirror 
                 value={activeFile.content} 
@@ -224,7 +223,7 @@ const Editor = ({ roomId, onExit }) => {
                 theme={vscodeDark} 
                 extensions={[getLanguageExtension(activeFile.name)]} 
                 onChange={handleCodeChange} 
-                onCreateEditor={(view) => { editorViewRef.current = view; }} // <-- NEW: Get the editor instance
+                onCreateEditor={(view) => { editorViewRef.current = view; }}
                 style={{ fontSize: '16px', width: '100%', height: '100%' }}
               />
             ) : (

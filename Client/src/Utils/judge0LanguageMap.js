@@ -14,7 +14,6 @@ export const languageToJudge0Id = {
     go: 95,     // Go (1.18.5)
     php: 68,    // PHP (7.4.1)
     // HTML/CSS are not executed on a server, they are rendered on the client.
-    // We will handle them separately with a live preview.
 };
 
 export const getJudge0LanguageId = (filename) => {
