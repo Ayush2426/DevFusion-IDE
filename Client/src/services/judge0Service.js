@@ -1,16 +1,16 @@
-import { toast } from 'sonner';
+import { toast } from "sonner";
 
-const JUDGE0_API_URL = 'https://judge0-ce.p.rapidapi.com';
-const RAPIDAPI_HOST = 'judge0-ce.p.rapidapi.com';
+const JUDGE0_API_URL = "https://judge0-ce.p.rapidapi.com";
+const RAPIDAPI_HOST = "judge0-ce.p.rapidapi.com";
 
 const createSubmission = async (sourceCode, languageId) => {
   const url = `${JUDGE0_API_URL}/submissions?base64_encoded=true&wait=true`; // Using base64 for safety
   const options = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'content-type': 'application/json',
-      'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
-      'X-RapidAPI-Host': RAPIDAPI_HOST,
+      "content-type": "application/json",
+      "X-RapidAPI-Key": import.meta.env.VITE_RAPIDAPI_KEY,
+      "X-RapidAPI-Host": RAPIDAPI_HOST,
     },
     body: JSON.stringify({
       language_id: languageId,
@@ -27,7 +27,7 @@ const createSubmission = async (sourceCode, languageId) => {
     const result = await response.json();
     return result;
   } catch (error) {
-    console.error('Error creating submission:', error);
+    console.error("Error creating submission:", error);
     toast.error(`Execution Error: ${error.message}`);
     return null;
   }
@@ -35,17 +35,19 @@ const createSubmission = async (sourceCode, languageId) => {
 
 export const runCode = async (sourceCode, languageId) => {
   if (!import.meta.env.VITE_RAPIDAPI_KEY) {
-    toast.error("RapidAPI key is not configured. Please check your .env.local file.");
+    toast.error(
+      "RapidAPI key is not configured. Please check your .env.local file."
+    );
     return {
       stdout: "Error: RapidAPI key not found.",
       stderr: null,
       compile_output: null,
-      message: "Configuration error."
-    }
+      message: "Configuration error.",
+    };
   }
 
   const result = await createSubmission(sourceCode, languageId);
-  
+
   if (!result) return null;
 
   // --- FIX: Check if each field exists before decoding ---

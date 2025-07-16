@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import { Toaster, toast } from 'sonner';
-import { onAuthStateChanged, signInAnonymously } from 'firebase/auth';
-import { auth } from './Firebase/firebase';
+import React, { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
+import { Toaster, toast } from "sonner";
+import { onAuthStateChanged, signInAnonymously } from "firebase/auth";
+import { auth } from "./Firebase/firebase";
 
-import AnimatedBackground from './Components/AnimatedBackground';
-import Lobby from './Pages/Lobby';
-import Editor from './Pages/Editor';
+import AnimatedBackground from "./Components/AnimatedBackground";
+import Lobby from "./Pages/Lobby";
+import Editor from "./Pages/Editor";
 
 function App() {
   const [userId, setUserId] = useState(null);
   const [isAuthReady, setIsAuthReady] = useState(false);
-  const [page, setPage] = useState('lobby'); 
+  const [page, setPage] = useState("lobby");
   const [roomId, setRoomId] = useState(null);
 
   // Effect to handle user authentication on initial load
@@ -37,12 +37,12 @@ function App() {
 
   const navigateToEditor = (id) => {
     setRoomId(id);
-    setPage('editor');
+    setPage("editor");
   };
 
   const navigateToLobby = () => {
     setRoomId(null);
-    setPage('lobby');
+    setPage("lobby");
   };
 
   // Display a loading indicator while auth is being checked
@@ -59,14 +59,10 @@ function App() {
     <>
       <Toaster position="top-right" richColors theme="dark" />
       <AnimatePresence mode="wait">
-        {page === 'lobby' && (
-          <Lobby
-            key="lobby"
-            onJoinRoom={navigateToEditor}
-            userId={userId}
-          />
+        {page === "lobby" && (
+          <Lobby key="lobby" onJoinRoom={navigateToEditor} userId={userId} />
         )}
-        {page === 'editor' && (
+        {page === "editor" && (
           <Editor
             key="editor"
             onExit={navigateToLobby}
