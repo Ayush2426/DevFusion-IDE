@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   Linkedin,
   Github,
-  Instagram,
+  Slack,
   Mail,
   Link as LinkIcon,
 } from "lucide-react";
@@ -20,9 +20,9 @@ const SocialButton = ({ className, ...props }) => {
     }, 
     { icon: Github, label: "GitHub", href: "https://github.com/Ayush2426" }, 
     {
-      icon: Instagram,
-      label: "Instagram",
-      href: "https://www.instagram.com/_ayush__vrma_/",
+      icon: Slack,
+      label: "Portfolio",
+      href: "https://ayushhh-portfolio-2025-oalo.vercel.app/",
     }, 
     { icon: Mail, label: "Mail", href: "mailto:ayushhhverma07@gmail.com" }, 
   ];
