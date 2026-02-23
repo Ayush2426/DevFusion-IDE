@@ -15,6 +15,7 @@ import { doc, onSnapshot, setDoc } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 import { v4 as uuidv4 } from "uuid";
 import CodeMirror from "@uiw/react-codemirror";
+//streaksss
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 
 import FileExplorer from "../Components/FileExplorer";
