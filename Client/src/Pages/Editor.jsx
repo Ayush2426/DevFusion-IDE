@@ -39,6 +39,8 @@ const Editor = ({ roomId, onExit }) => {
   const [isExplanationVisible, setIsExplanationVisible] = useState(false);
   const [explanationContent, setExplanationContent] = useState("");
 
+  // streakssss
+
   const editorViewRef = useRef(null);
 
   useEffect(() => {
